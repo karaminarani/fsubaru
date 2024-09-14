@@ -7,7 +7,7 @@ from hydrogram import Client, filters
 from hydrogram.helpers import ikb
 
 import bot
-from bot import aiofiles_read, button, config, filter_authorized, get_gist_raw, logger
+from bot import aiofiles_read, button, config, get_gist_raw, logger
 
 if TYPE_CHECKING:
     from hydrogram.types import Message
@@ -32,7 +32,7 @@ async def logs_handler(_: "bot", message: "Message") -> None:
     await logs_msg.edit_text("<b>Bot Logs</b>", reply_markup=logs_button)
 
 
-@Client.on_message(filter_authorized & filters.command(["restart", "r"]))
+@Client.on_message(filters.user(config.OWNER_ID) & filters.command(["restart", "r"]))
 async def restart_handler(_: "bot", message: "Message") -> None:
     async def async_restart_func() -> None:
         process = await asyncio.create_subprocess_exec(sys.executable, *sys.argv)
