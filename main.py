@@ -135,8 +135,8 @@ if __name__ == "__main__":
         loop.run_forever()
     except KeyboardInterrupt:
         logger.info("KeyboardInterrupt: Terminating...")
-    except BotError as be:
-        logger.error(str(be))
+    except BotError as e:
+        logger.error(str(e))
     finally:
         loop.run_until_complete(bot.stop())
         loop.close()

@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Dict, List, Optional, Union
+from typing import TYPE_CHECKING, Dict, List, Optional
 
 from hydrogram.enums import ChatType
 from hydrogram.errors import RPCError
@@ -31,7 +31,7 @@ class Cache:
         self.start_text: str = ""
         self.force_text: str = ""
         self.admins: List[int] = []
-        self.fs_chats: Dict[int, Dict[str, Union[str, str]]] = {}
+        self.fs_chats: Dict[int, Dict[str, str]] = {}
         self.protect_content: bool = False
         self.generate_status: bool = False
 
@@ -68,7 +68,7 @@ class Cache:
 
         return self.admins
 
-    async def fs_chats_init(self) -> Dict[int, Dict[str, Union[str, str]]]:
+    async def fs_chats_init(self) -> Dict[int, Dict[str, str]]:
         """
         Initializes the list of free subscription chats from the database and verifies their details.
 
