@@ -28,8 +28,8 @@ class Cache:
             client (bot): The bot client instance.
         """
         self.client = client
-        self.start_text: str = ""
-        self.force_text: str = ""
+        self.start_text: str = "Initializing..."
+        self.force_text: str = "Initializing..."
         self.admins: List[int] = []
         self.fs_chats: Dict[int, Dict[str, str]] = {}
         self.protect_content: bool = False
