@@ -1,6 +1,10 @@
 import os
 from typing import Optional
 
+from dotenv import load_dotenv
+
+load_dotenv("config.env")  # take environment variables from config.env
+
 
 class Config:
     """

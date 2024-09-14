@@ -17,7 +17,7 @@ class Button:
     """
 
     Contact: List[List[Tuple[str, str, str]]] = [
-        [("Contact", f"https://t.me/{config.OWNER_USERNAME}", "url")]
+        [("Contact", f"https://t.me/{config.OWNER_USERNAME.strip('@')}", "url")]
     ]
     Close: List[List[Tuple[str, str]]] = [[("Close", "close")]]
     Broadcast: List[List[Tuple[str, str]]] = [[("Refresh", "broadcast")]]
