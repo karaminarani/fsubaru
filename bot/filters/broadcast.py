@@ -23,9 +23,6 @@ def broadcast(_: "Filter", __: "Client", event: Union[CallbackQuery, Message]) -
     Returns:
         bool: True if the user is an admin; otherwise, False.
     """
-    # Determine if the event is a CallbackQuery or Message and extract the message object
-    event.message if isinstance(event, CallbackQuery) else event
-
     # Check if the user ID is in the list of admins
     if event.from_user.id in cache.admins or event.from_user.id == config.OWNER_ID:
         return True

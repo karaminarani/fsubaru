@@ -116,7 +116,6 @@ async def get_gist_raw(content: str) -> str:
     Updates an existing GitHub Gist and returns the raw URL of the updated file.
 
     Args:
-        gist_id (str): The ID of the Gist to update.
         content (str): The updated content of the file.
 
     Returns:
