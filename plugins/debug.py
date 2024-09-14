@@ -6,8 +6,7 @@ import aiofiles
 from hydrogram import Client, filters
 from hydrogram.helpers import ikb
 
-import bot
-from bot import aiofiles_read, button, config, get_gist_raw, logger
+from bot import aiofiles_read, button, config, filter_authorized, get_gist_raw, logger
 
 if TYPE_CHECKING:
     from hydrogram.types import Message
@@ -15,7 +14,7 @@ if TYPE_CHECKING:
     from bot import bot
 
 
-@Client.on_message(filters.filter_authorized & filters.command("set"))
+@Client.on_message(filter_authorized & filters.command("set"))
 async def settings_handler(_: "bot", message: "Message") -> None:
     await message.reply_text(
         "<b>Bot Settings:</b>", quote=True, reply_markup=ikb(button.Menu)
