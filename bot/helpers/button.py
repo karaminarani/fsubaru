@@ -28,7 +28,7 @@ class Button:
         [("Start", "menu_start"), ("Force", "menu_force")],
         [("Protect Content", "menu_protect")],
         [("Admins", "menu_admins"), ("F-Subs", "menu_fsubs")],
-        [("Close", "close")],
+        [("Report and Feedback", "https://t.me/6281991816908")],
     ]
     Cancel: List[List[Tuple[str, str]]] = [[("Cancel", "cancel")]]
     Generate: List[List[Tuple[str, str]]] = [
@@ -80,7 +80,7 @@ def admin_buttons() -> ikb:
     button_layouts: List[List[Tuple[str, str, str]]] = [
         buttons[i : i + 3] for i in range(0, len(buttons), 3)
     ]
-    button_layouts.append([("Settings", "settings")])
+    button_layouts.append([("Bot Settings", "settings")])
 
     return ikb(button_layouts)
 
