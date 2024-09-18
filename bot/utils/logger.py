@@ -66,7 +66,6 @@ class Logger:
 
         # Reduce logging level for noisy libraries
         logging.getLogger("apscheduler").setLevel(logging.WARNING)
-        logging.getLogger("httpx").setLevel(logging.WARNING)
         logging.getLogger("hydrogram").setLevel(logging.WARNING)
         logging.getLogger("pymongo").setLevel(logging.WARNING)
 
