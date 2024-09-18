@@ -18,9 +18,7 @@ class Config:
         self.BOT_TOKEN: str = os.environ.get("BOT_TOKEN", None)
         self.MONGODB_URL: str = os.environ.get("MONGODB_URL", None)
         self.DATABASE_CHAT_ID = self._get_int_env("DATABASE_CHAT_ID")
-        self.GIST_ID: str = os.environ.get("GIST_ID", None)
-        self.GITHUB_TOKEN: str = os.environ.get("GITHUB_TOKEN", None)
-        self.OWNER_USERNAME: str = os.environ.get("OWNER_USERNAME", None)
+        self.OWNER_USERNAME: str = os.environ.get("OWNER_USERNAME", "@BotFather")
 
         # Perform validation
         self._validate_required_vars()
@@ -57,9 +55,6 @@ class Config:
             "OWNER_ID": self.OWNER_ID,
             "API_ID": self.API_ID,
             "DATABASE_CHAT_ID": self.DATABASE_CHAT_ID,
-            "GIST_ID": self.GIST_ID,
-            "GITHUB_TOKEN": self.GITHUB_TOKEN,
-            "OWNER_USERNAME": self.OWNER_USERNAME,
         }
         for var_name, value in required_vars.items():
             if value is None:

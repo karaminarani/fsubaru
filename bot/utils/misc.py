@@ -1,12 +1,9 @@
 import base64
-import datetime
 from typing import List, Optional, Union
 
 import aiofiles
-import httpx
 
 from .config import config
-from .logger import logger
 
 
 class URLSafe:
@@ -109,40 +106,3 @@ def decode_data(encoded_data: str) -> Union[List[int], range]:
             return range(start_id, end_id + 1)
         else:
             return range(start_id, end_id - 1, -1)
-
-
-async def get_gist_raw(content: str) -> str:
-    """
-    Updates an existing GitHub Gist and returns the raw URL of the updated file.
-
-    Args:
-        content (str): The updated content of the file.
-
-    Returns:
-        str: The raw URL of the updated file or an error message.
-    """
-    gist_id = config.GIST_ID
-    api_url = f"https://api.github.com/gists/{gist_id}"
-    fmtname = url_safe.encode_data(
-        f"{config.BOT_ID}_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}"
-    )
-
-    payload = {"files": {fmtname: {"content": content}}}
-    headers = {
-        "Authorization": f"token {config.GITHUB_TOKEN}",
-        "Accept": "application/vnd.github+json",
-    }
-    async with httpx.AsyncClient() as client:
-        try:
-            response = await client.patch(api_url, json=payload, headers=headers)
-            response.raise_for_status()
-
-            response_json = response.json()
-            owner_login = response_json["owner"]["login"]
-            raw_url = f"https://gist.githubusercontent.com/{owner_login}/{gist_id}/raw/{fmtname}"
-
-            return raw_url
-        except (httpx.HTTPStatusError, Exception) as exc:
-            logger.error(f"HTTPX: {exc}")
-
-    return "https://gist.github.com"

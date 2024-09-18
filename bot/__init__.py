@@ -18,7 +18,7 @@ from .db_funcs import (
 )
 from .filters import filter_authorized, filter_broadcast
 from .helpers import admin_buttons, button, cache, join_buttons
-from .utils import aiofiles_read, config, decode_data, get_gist_raw, logger, url_safe
+from .utils import aiofiles_read, config, decode_data, logger, url_safe
 
 __all__ = [
     "BotError",
@@ -48,7 +48,6 @@ __all__ = [
     "aiofiles_read",
     "config",
     "decode_data",
-    "get_gist_raw",
     "logger",
     "url_safe",
 ]
