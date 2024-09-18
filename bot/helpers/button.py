@@ -28,7 +28,7 @@ class Button:
         [("Start", "menu_start"), ("Force", "menu_force")],
         [("Protect Content", "menu_protect")],
         [("Admins", "menu_admins"), ("F-Subs", "menu_fsubs")],
-        [("Report and Feedback", "https://t.me/6281991816908")],
+        [("Report and Feedback", "https://t.me/6281991816908", "url")],
     ]
     Cancel: List[List[Tuple[str, str]]] = [[("Cancel", "cancel")]]
     Generate: List[List[Tuple[str, str]]] = [
