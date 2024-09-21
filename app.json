@@ -1,0 +1,37 @@
+{
+    "name": "FS Telegram",
+    "description": "File Share | Telegram Bot | Force Sub",
+    "stack": "container",
+    "env": {
+        "API_ID": {
+            "required": false,
+            "value": "2040"
+        },
+        "API_HASH": {
+            "required": false,
+            "value": "b18441a1ff607e10a989891a5462e627"
+        },
+        "BOT_TOKEN": {
+            "required": true
+        },
+        "DATABASE_CHAT_ID": {
+            "required": true
+        },
+        "OWNER_ID": {
+            "required": true
+        },
+        "MONGODB_URL": {
+            "required": true
+        },
+        "OWNER_USERNAME": {
+            "required": false,
+            "value": "@BotFather"
+        }
+    },
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "eco"
+        }
+    }
+}
