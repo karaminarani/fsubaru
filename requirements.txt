@@ -4,7 +4,7 @@ async-pymongo==0.1.7
 dnspython==2.6.1
 Hydrogram==0.2.0
 pyaes==1.6.1
-pymongo==4.9.1
+pymongo==4.10.1
 PySocks==1.7.1
 python-dotenv==1.0.1
 TgCrypto==1.2.5
